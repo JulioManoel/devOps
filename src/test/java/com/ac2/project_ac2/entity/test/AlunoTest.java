@@ -24,4 +24,12 @@ public class AlunoTest {
             new Email("invalid-email");
         });
     }
+    
+    @Test
+    void testNullEmailThrowsException() {
+        Email email = new Email("usuario.exemplo+teste@gmail.com");
+        assertThrows(IllegalArgumentException.class, () -> {
+            email.setAddress(null);
+        });
+    }
 }
